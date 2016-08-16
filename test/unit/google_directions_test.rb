@@ -54,4 +54,15 @@ class GoogleDirectionsTest < Test::Unit::TestCase
     directions = GoogleDirections.new("27 Beemdenlaan, 2550 Kontich", "499 Gordonsville Highway, 38563")
     assert_equal "0 km", directions.distance_text
   end
+
+  def test_polylines_length
+    directions = GoogleDirections.new("Place du Maquis du Vercors PARIS-19EME", "rue poissoniere 75002 paris")
+    assert_equal 15, directions.polylines.length
+  end
+
+  def test_polylines_as_points_length
+    directions = GoogleDirections.new("Place du Maquis du Vercors PARIS-19EME", "rue poissoniere 75002 paris")
+    assert_equal 279, directions.polylines_as_points.length
+  end
+
 end
