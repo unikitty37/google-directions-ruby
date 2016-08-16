@@ -26,6 +26,8 @@ class GoogleDirections
     @xml = open(@url).read
     @doc = Nokogiri::XML(@xml)
     @status = @doc.css('status').text
+    @distance_text = nil
+    @distance = nil
   end
 
   def xml_call
