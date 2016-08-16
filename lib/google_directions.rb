@@ -3,6 +3,7 @@ require 'cgi'
 require 'net/http'
 require 'open-uri'
 require 'nokogiri'
+require 'polylines'
 
 class GoogleDirections
 
@@ -85,6 +86,14 @@ class GoogleDirections
     else
       []
     end
+  end
+
+  def polylines
+    @doc.css('polyline').map{|poly| poly.text.strip}
+  end
+
+  def polylines_as_points
+    polylines.map{|poly| Polylines::Decoder.decode_polyline(poly)}.flatten(1).uniq
   end
 
   private
