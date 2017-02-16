@@ -31,4 +31,5 @@ Gem::Specification.new do |s|
   else
     s.add_dependency(%q<nokogiri>, [">= 1.4.1"])
   end
+  s.add_dependency(%q<polylines>, [">= 0.3.0"])
 end
