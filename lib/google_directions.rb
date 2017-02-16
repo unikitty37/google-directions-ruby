@@ -66,12 +66,12 @@ class GoogleDirections
     end
   end
 
-  def distance_in_miles
+  def distance_in_miles(decimal_places: 0)
     if @status != "OK"
       distance_in_miles = 0
     else
       meters = distance
-      distance_in_miles = (meters.to_f / 1610.22).round
+      distance_in_miles = (meters.to_f / 1610.22).round(decimal_places)
       distance_in_miles
     end
   end

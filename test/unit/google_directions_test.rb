@@ -9,6 +9,7 @@ class GoogleDirectionsTest < Test::Unit::TestCase
     dest = "499 Gordonsville Highway, 38563"
     directions = GoogleDirections.new(orig, dest)
     assert_equal(4, directions.distance_in_miles)
+    assert_equal(3.6, directions.distance_in_miles(decimal_places: 1))
     assert_equal(5, directions.drive_time_in_minutes)
     assert_equal('http://maps.googleapis.com/maps/api/directions/xml?language=en&alternative=true&sensor=false&mode=driving&origin=121+Gordonsville+Highway%2C+37030&destination=499+Gordonsville+Highway%2C+38563', directions.xml_call)
     # end_location > lat
